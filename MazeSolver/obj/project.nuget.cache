@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g/5xHwF5NnM=",
+  "dgSpecHash": "xOLugq4zelg=",
   "success": true,
-  "projectFilePath": "E:\\Projects\\Maze Solver\\MazeSolver\\MazeSolver.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\yogev\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.15\\microsoft.netcore.app.ref.8.0.15.nupkg.sha512",
-    "C:\\Users\\yogev\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.15\\microsoft.windowsdesktop.app.ref.8.0.15.nupkg.sha512",
-    "C:\\Users\\yogev\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.15\\microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512",
-    "C:\\Users\\yogev\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.15\\microsoft.netcore.app.host.win-x64.8.0.15.nupkg.sha512"
-  ],
+  "projectFilePath": "E:\\Projects\\Maze Solver\\MazeSolverNew\\MazeSolverNew.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

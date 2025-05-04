@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MazeSolver
+namespace MazeSolverNew
 {
     public class MazeGenerator
     {
@@ -30,6 +30,7 @@ namespace MazeSolver
         public char[,] GenerateMaze()
         {
             maze = new char[width, height];
+            // Initialize all cells as walls
             for (int x = 0; x < width; x++)
                 for (int y = 0; y < height; y++)
                     maze[x, y] = '#';
@@ -37,10 +38,14 @@ namespace MazeSolver
             // Start point
             maze[1, 1] = 'S';
 
+            // Generate paths
             CarvePath(1, 1);
 
             // End point
             maze[width - 2, height - 2] = 'E';
+
+            // Ensure all paths are properly connected
+            ValidatePaths();
 
             return maze;
         }
@@ -59,8 +64,10 @@ namespace MazeSolver
 
                 if (IsValidMove(newX, newY))
                 {
+                    // Carve the path
                     maze[newX, newY] = '.';
-                    maze[x + direction[0] / 2, y + direction[1] / 2] = '.'; // Carve intermediate space
+                    // Carve the intermediate cell
+                    maze[x + direction[0] / 2, y + direction[1] / 2] = '.';
                     CarvePath(newX, newY);
                 }
             }
@@ -69,7 +76,37 @@ namespace MazeSolver
         private bool IsValidMove(int x, int y)
         {
             if (maze == null) return false;
+            // Check if the position is within bounds and is a wall
             return x > 0 && x < width - 1 && y > 0 && y < height - 1 && maze[x, y] == '#';
+        }
+
+        private void ValidatePaths()
+        {
+            if (maze == null) return;
+
+            // Ensure all paths are properly connected
+            for (int x = 1; x < width - 1; x++)
+            {
+                for (int y = 1; y < height - 1; y++)
+                {
+                    if (maze[x, y] == '.')
+                    {
+                        // Count adjacent paths
+                        int adjacentPaths = 0;
+                        if (maze[x - 1, y] != '#') adjacentPaths++;
+                        if (maze[x + 1, y] != '#') adjacentPaths++;
+                        if (maze[x, y - 1] != '#') adjacentPaths++;
+                        if (maze[x, y + 1] != '#') adjacentPaths++;
+
+                        // If a path cell has only one connection, it's a dead end
+                        if (adjacentPaths == 1)
+                        {
+                            // Make it a wall to prevent invalid paths
+                            maze[x, y] = '#';
+                        }
+                    }
+                }
+            }
         }
 
         public string GetMazeAsString()

@@ -1,4 +1,0 @@
-E:\Projects\Maze Solver\MazeSolver\obj\Debug\net8.0-windows\MainWindow.g.cs
-E:\Projects\Maze Solver\MazeSolver\obj\Debug\net8.0-windows\App.g.cs
-E:\Projects\Maze Solver\MazeSolver\obj\Debug\net8.0-windows\MazeSolver_MarkupCompile.cache
-E:\Projects\Maze Solver\MazeSolver\obj\Debug\net8.0-windows\MazeSolver_MarkupCompile.lref
